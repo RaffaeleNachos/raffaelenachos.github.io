@@ -1,77 +1,120 @@
-//import three.js module
+// import three.js module
 import * as THREE from '/build/three.module.js';
-//import mouse view controls
+// import mouse view controls
 import * as OBJ from '/modules/OrbitControls.js';
+// import stl loader
+import * as STL from '/modules/STLLoader.js';
 
-var canvas = document.getElementById("secondcanvas");
 var scene;
 var camera;
 var renderer;
-var texture = new THREE.TextureLoader().load('/textures/moon.jpg');
+var canvas = document.getElementById("secondcanvas");
+var loader = new STL.STLLoader();
+// var texture = new THREE.TextureLoader().load('/textures/moon.jpg');
+var stem;
+//var keycap;
 var boing = 0;
-var sphere;
+var camera_pivot;
+var y_axis = new THREE.Vector3( 0, 1, 0 );
 
-function init_scene(){
+function init_scene() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera( 40, canvas.clientWidth / canvas.clientHeight, 0.1, 1000 ); //camera with param FOV, dim-canvas, min distance render, max distance render
-    renderer = new THREE.WebGLRenderer({ antialias: true, canvas: secondcanvas }); //render motor
-    renderer.setSize( canvas.clientWidth, canvas.clientHeight );
-    new OBJ.OrbitControls( camera, renderer.domElement );
+    camera = new THREE.PerspectiveCamera(40, canvas.clientWidth / canvas.clientHeight, 0.1, 1000); // camera with param FOV, dim-canvas, min distance render, max distance render
+    renderer = new THREE.WebGLRenderer({antialias: true, canvas: secondcanvas}); // render motor
+    new OBJ.OrbitControls(camera, renderer.domElement);
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     document.getElementById('myWeb').appendChild( renderer.domElement );
-    camera.position.z = 40;
+    camera.position.z = 80;
+    camera_pivot = new THREE.Object3D();
+    scene.add( camera_pivot );
+    camera_pivot.add( camera );
+    camera.position.set( 50, 35, 0 );
+    camera.lookAt( camera_pivot.position );
 }
 
-function enable_shadows(){
+function enable_shadows() {
     var ambientlight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientlight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.BasicShadowMap;
-    var light = new THREE.PointLight( 0xffffff, 0.4, 200);
-    light.position.set(50,50,0);
+    var light = new THREE.PointLight(0xffffff, 0.4, 200);
+    light.position.set(50, 50, 0);
     light.castShadow = true;
     light.shadow.camera.near = 0.2;
     light.shadow.camera.far = 100;
     scene.add(light);
 }
 
-function init_geometrics(){
-    //moon
-    var moon = new THREE.SphereGeometry( 5, 64, 64 ); //geometria, struttra che contiene tutti i vertici ecc...
-    var moon_material = new THREE.MeshPhongMaterial( { map: texture} );
-    sphere = new THREE.Mesh( moon, moon_material ); //a questo punto creiamo la mesh sulla base della geometria e del materiale
-    sphere.receiveShadow = true;
-    sphere.castShadow = true;
-    scene.add(sphere);
-    //base
-    var base = new THREE.CylinderGeometry( 8, 8, 2, 64 );
-    var base_material = new THREE.MeshPhongMaterial( { color: 0x91a3b0} );
-    var cy = new THREE.Mesh( base, base_material );
-    cy.receiveShadow = true;
-    cy.castShadow = true;
-    cy.position.y = -8.5;
-    scene.add(cy);
-    //capsule
-    var dome_capsule = new THREE.SphereGeometry( 8, 64, 64, 0, Math.PI*2, 0, Math.PI/2);
-    var glassy_material = new THREE.MeshPhongMaterial( { color: 0xa8ccd7, opacity: 0.3, transparent: true,} );
-    glassy_material.side = THREE.FrontSide;
-    var glasstop = new THREE.Mesh( dome_capsule, glassy_material );
-    glasstop.position.y= 3.5;
-    glasstop.receiveShadow = true;
-    scene.add(glasstop);
-    var cy_capsule = new THREE.CylinderGeometry( 8, 8, 11, 64, 1, true );
-    cy_capsule = new THREE.Mesh(cy_capsule, glassy_material);
-    cy_capsule.receiveShadow = true;
-    cy_capsule.position.y=-2;
-    scene.add(cy_capsule);
+function gaussian_curve(){
+
+}
+
+function init_geometrics() {
+    loader.load('../mesh/bottom.stl', function (geometry) {
+        var material = new THREE.MeshPhongMaterial({color: 0x232b2b});
+        var mesh = new THREE.Mesh(geometry, material);
+
+        //mesh.rotation.set(0, -Math.PI / 4, 0);
+        //mesh.scale.set(0.5, 0.5, 0.5);
+
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        mesh.position.x = -7.5;
+        mesh.position.z = 7.5;
+
+        scene.add(mesh);
+
+    });
+    loader.load('../mesh/top.stl', function (geometry) {
+        var material = new THREE.MeshPhongMaterial({color: 0xdbf0ff, opacity: 0.5, transparent: true});
+        var mesh = new THREE.Mesh(geometry, material);
+
+        //mesh.rotation.set(0, -Math.PI / 4, 0);
+        //mesh.scale.set(0.5, 0.5, 0.5);
+
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        mesh.position.x = -7.5;
+        mesh.position.z = 7.5;
+
+        scene.add(mesh);
+
+    });
+    loader.load('../mesh/stem.stl', function (geometry) {
+        var material = new THREE.MeshPhongMaterial({color: 0x6495ed});
+        stem = new THREE.Mesh(geometry, material);
+
+        //mesh.rotation.set(0, -Math.PI / 4, 0);
+
+        stem.castShadow = true;
+        stem.receiveShadow = true;
+        stem.position.x = -7.5;
+        stem.position.z = 7.5;
+
+        scene.add(stem);
+
+    });
+    /*loader.load('../mesh/1u.stl', function (geometry) {
+        var material = new THREE.MeshPhongMaterial({color: 0xF8F8FF});
+        keycap = new THREE.Mesh(geometry, material);
+
+        //mesh.rotation.set(0, -Math.PI / 4, 0);
+        keycap.position.y = 30;
+        keycap.castShadow = true;
+        keycap.receiveShadow = true;
+
+        scene.add(keycap);
+
+    });*/
 }
 
 function animate() {
     requestAnimationFrame(animate);
-    sphere.rotation.x += 0.001;
-    sphere.rotation.y += 0.005;
-    boing+=0.01;
-    sphere.position.y = Math.sin(boing) + 0.5;
+    boing+=0.02;
+    stem.position.y = Math.sin(boing)*1.9 -2;
+    //keycap.position.y = Math.sin(boing)*1.9 +3.8;
     renderer.render(scene, camera);
+    camera_pivot.rotateOnAxis( y_axis, 0.01);
 }
 
 init_scene();
