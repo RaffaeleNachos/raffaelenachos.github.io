@@ -1,0 +1,240 @@
+.mediaViewInfo {
+    --web-view-name: myWeb;
+    --web-view-id: myWeb;
+    --web-scale-on-resize: true;
+    --web-center-horizontally: true;
+    --web-enable-deep-linking: true;
+}
+
+:root {
+    --web-view-ids: myWeb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+#myWeb {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 1366px;
+    height: 2191px;
+    background-color: rgba(255, 255, 255, 1);
+    overflow: hidden;
+    --web-view-name: myWeb;
+    --web-view-id: myWeb;
+    --web-scale-on-resize: true;
+    --web-center-horizontally: true;
+    --web-enable-deep-linking: true;
+}
+
+.blackground {
+    position: absolute;
+    overflow: visible;
+    width: 1317px;
+    height: 2144px;
+    left: 24.5px;
+    top: 23px;
+}
+
+#finalpic {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    left: 121px;
+    top: 115px;
+    overflow: visible;
+}
+
+#firstcanvas {
+    position: absolute;
+    overflow: visible;
+    width: 340px;
+    height: 505px;
+    left: 121px;
+    top: 385px;
+}
+
+#hello_world {
+    position: absolute;
+    left: 375px;
+    top: 115px;
+    overflow: visible;
+    width: 330px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 80px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#my_name {
+    position: absolute;
+    left: 375px;
+    top: 198px;
+    overflow: visible;
+    width: 228px;
+    white-space: nowrap;
+    line-height: 38px;
+    margin-top: -4px;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#description {
+    position: absolute;
+    left: 624px;
+    top: 565px;
+    overflow: visible;
+    width: 622px;
+    white-space: nowrap;
+    line-height: 38px;
+    margin-top: -4px;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
+
+.footerline {
+    overflow: visible;
+    position: absolute;
+    width: 1317px;
+    height: 1px;
+    left: 24.5px;
+    top: 1930.5px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+#ping_me {
+    position: absolute;
+    left: 142px;
+    top: 1957px;
+    overflow: visible;
+    width: 124px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#mail {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    left: 136px;
+    top: 2002px;
+    overflow: visible;
+}
+
+#mail_text {
+    position: absolute;
+    left: 199px;
+    top: 2008px;
+    overflow: visible;
+    width: 215px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#github {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    left: 136px;
+    top: 2067px;
+    overflow: visible;
+}
+
+#github_username {
+    position: absolute;
+    left: 199px;
+    top: 2075px;
+    overflow: visible;
+    width: 183px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#disclaimer {
+    position: absolute;
+    left: 895px;
+    top: 1967px;
+    overflow: visible;
+    width: 351px;
+    white-space: nowrap;
+    line-height: 38px;
+    margin-top: -4px;
+    text-align: right;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#articleheader {
+    position: absolute;
+    left: 416px;
+    top: 1453.101px;
+    overflow: visible;
+    width: 535px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 80px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#secondcanvas {
+    position: absolute;
+    overflow: visible;
+    width: 340px;
+    height: 505px;
+    left: 905px;
+    top: 890px;
+}
+
+#hobbies {
+    position: absolute;
+    left: 121px;
+    top: 1070px;
+    overflow: visible;
+    width: 622px;
+    white-space: nowrap;
+    line-height: 38px;
+    margin-top: -4px;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+    color: rgba(112, 112, 112, 1);
+}
