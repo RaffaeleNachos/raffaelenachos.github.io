@@ -24,7 +24,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 1366px;
-    height: 2191px;
+    height: 2205px;
     background-color: rgba(255, 255, 255, 1);
     overflow: hidden;
     --web-view-name: myWeb;
@@ -123,7 +123,7 @@
 #ping_me {
     position: absolute;
     left: 142px;
-    top: 1957px;
+    top: 1950px;
     overflow: visible;
     width: 124px;
     white-space: nowrap;
@@ -137,17 +137,17 @@
 
 #mail {
     position: absolute;
-    width: 47px;
-    height: 47px;
-    left: 136px;
-    top: 2002px;
+    width: 30px;
+    height: 30px;
+    left: 142px;
+    top: 2000px;
     overflow: visible;
 }
 
 #mail_text {
     position: absolute;
-    left: 199px;
-    top: 2008px;
+    left: 190px;
+    top: 2005px;
     overflow: visible;
     width: 215px;
     white-space: nowrap;
@@ -155,23 +155,23 @@
     font-family: Coves;
     font-style: normal;
     font-weight: lighter;
-    font-size: 30px;
+    font-size: 20px;
     color: rgba(112, 112, 112, 1);
 }
 
 #github {
     position: absolute;
-    width: 47px;
-    height: 47px;
-    left: 136px;
-    top: 2067px;
+    width: 30px;
+    height: 30px;
+    left: 142px;
+    top: 2040px;
     overflow: visible;
 }
 
 #github_username {
     position: absolute;
-    left: 199px;
-    top: 2075px;
+    left: 190px;
+    top: 2045px;
     overflow: visible;
     width: 183px;
     white-space: nowrap;
@@ -179,14 +179,62 @@
     font-family: Coves;
     font-style: normal;
     font-weight: lighter;
-    font-size: 30px;
+    font-size: 20px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#linkedin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 142px;
+    top: 2080px;
+    overflow: visible;
+}
+
+#linkedin_text {
+    position: absolute;
+    left: 190px;
+    top: 2085px;
+    overflow: visible;
+    width: 183px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgba(112, 112, 112, 1);
+}
+
+#cv {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 142px;
+    top: 2120px;
+    overflow: visible;
+}
+
+#cv_text {
+    position: absolute;
+    left: 190px;
+    top: 2125px;
+    overflow: visible;
+    width: 183px;
+    white-space: nowrap;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 20px;
     color: rgba(112, 112, 112, 1);
 }
 
 #disclaimer {
     position: absolute;
     left: 895px;
-    top: 1967px;
+    top: 1985px;
     overflow: visible;
     width: 351px;
     white-space: nowrap;
