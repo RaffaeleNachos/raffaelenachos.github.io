@@ -20,8 +20,9 @@ var y_axis = new THREE.Vector3( 0, 1, 0 );
 function init_scene() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(40, canvas.clientWidth / canvas.clientHeight, 0.1, 1000); // camera with param FOV, dim-canvas, min distance render, max distance render
-    renderer = new THREE.WebGLRenderer({antialias: true, canvas: secondcanvas}); // render motor
+    renderer = new THREE.WebGLRenderer({antialias: true, canvas: secondcanvas, alpha: true}); // render motor
     new OBJ.OrbitControls(camera, renderer.domElement);
+    renderer.setClearColor( 0x000000, 0 );
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
     document.getElementById('myWeb').appendChild( renderer.domElement );
     camera.position.z = 80;
