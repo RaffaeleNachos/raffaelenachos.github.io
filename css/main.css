@@ -1,13 +1,6 @@
-.mediaViewInfo {
-    --web-view-name: myWeb;
-    --web-view-id: myWeb;
-    --web-scale-on-resize: true;
-    --web-center-horizontally: true;
-    --web-enable-deep-linking: true;
-}
-
-:root {
-    --web-view-ids: myWeb;
+@font-face {
+    font-family: Coves;
+    src: url(./font/Coves.otf);
 }
 
 * {
@@ -15,6 +8,11 @@
     padding: 0;
     box-sizing: border-box;
     border: none;
+}
+
+#particles-js {
+    height: 100%;
+    width: 100%;
 }
 
 #myWeb {
@@ -25,22 +23,6 @@
     margin-right: auto;
     width: 1366px;
     height: 2205px;
-    background-color: rgba(255, 255, 255, 1);
-    overflow: hidden;
-    --web-view-name: myWeb;
-    --web-view-id: myWeb;
-    --web-scale-on-resize: true;
-    --web-center-horizontally: true;
-    --web-enable-deep-linking: true;
-}
-
-.blackground {
-    position: absolute;
-    overflow: visible;
-    width: 1317px;
-    height: 2144px;
-    left: 24.5px;
-    top: 23px;
 }
 
 #finalpic {
