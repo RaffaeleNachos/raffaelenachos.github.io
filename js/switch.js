@@ -46,10 +46,6 @@ function enable_shadows() {
     scene.add(light);
 }
 
-function gaussian_curve(){
-
-}
-
 function init_geometrics() {
     loader.load('../mesh/bottom.stl', function (geometry) {
         var material = new THREE.MeshPhongMaterial({color: 0x232b2b});
