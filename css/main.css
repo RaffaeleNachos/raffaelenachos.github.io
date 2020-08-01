@@ -26,6 +26,7 @@
 }
 
 #finalpic {
+    border-radius: 50%;
     position: absolute;
     width: 210px;
     height: 210px;
