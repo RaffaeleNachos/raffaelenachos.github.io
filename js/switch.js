@@ -56,8 +56,8 @@ function init_geometrics() {
 
         mesh.castShadow = true;
         mesh.receiveShadow = true;
-        mesh.position.x = -7.5;
-        mesh.position.z = 7.5;
+        //mesh.position.x = -7.5;
+        //mesh.position.z = 7.5;
 
         scene.add(mesh);
 
@@ -71,9 +71,9 @@ function init_geometrics() {
 
         mesh.castShadow = true;
         mesh.receiveShadow = true;
-        mesh.position.x = -7.5;
-        mesh.position.z = 7.5;
-
+        //mesh.position.x = -7.5;
+        //mesh.position.z = 7.5;
+        mesh.position.y = 3,
         scene.add(mesh);
 
     });
@@ -85,8 +85,8 @@ function init_geometrics() {
 
         stem.castShadow = true;
         stem.receiveShadow = true;
-        stem.position.x = -7.5;
-        stem.position.z = 7.5;
+        //stem.position.x = -7.5;
+        //stem.position.z = 7.5;
 
         scene.add(stem);
 
@@ -108,7 +108,7 @@ function init_geometrics() {
 function animate() {
     requestAnimationFrame(animate);
     boing+=0.02;
-    stem.position.y = Math.sin(boing)*1.9 -2;
+    stem.position.y = Math.sin(boing)*1.9 + 4.6;
     //keycap.position.y = Math.sin(boing)*1.9 +3.8;
     renderer.render(scene, camera);
     camera_pivot.rotateOnAxis( y_axis, 0.01);
