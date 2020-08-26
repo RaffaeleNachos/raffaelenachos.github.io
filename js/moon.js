@@ -4,6 +4,7 @@ import * as THREE from '/build/three.module.js';
 import * as OBJ from '/modules/OrbitControls.js';
 
 var canvas = document.getElementById("firstcanvas");
+canvas.focus({preventScroll:false});
 var scene;
 var camera;
 var renderer;

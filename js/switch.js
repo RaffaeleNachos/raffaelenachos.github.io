@@ -9,6 +9,7 @@ var scene;
 var camera;
 var renderer;
 var canvas = document.getElementById("secondcanvas");
+canvas.focus({preventScroll:false});
 var loader = new STL.STLLoader();
 // var texture = new THREE.TextureLoader().load('/textures/moon.jpg');
 var stem;
