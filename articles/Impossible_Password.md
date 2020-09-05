@@ -228,7 +228,7 @@ void printFlag(byte *param)
 
 printFlag() checks until the end of the array ('\t') and until the max lenght (20 in decimal, 0x14 in hex) and it does a XOR operation with '0x9'
 
-Let's do it by hand for the first letter and then we will write a simple python script in order to automate it. So the first letter is A that in HEX is 0x41 ant then XOR it with 0x9
+Let's do it by hand for the first letter and then we will write a simple python script in order to automate it. So the first letter of the strangeStr array is A (as we can see in the previous checkPasswords() function). "A" in HEX is 0x41 (as we can see from the FUN_0040085d() that Ghidra had decompiled - ```local_48 = 0x41;``` ) and then XOR with 0x9
 
 > 1000001    0x41
 > 
@@ -236,7 +236,7 @@ Let's do it by hand for the first letter and then we will write a simple python 
 > 
 > 1001000    0x48
 
-0x48 in ASCII is H and we know that the format of the flag is HTB{...} so we are following the correct road!
+We get 0x48 that in ASCII is H and we know that the format of the flag is HTB{...} so we are following the correct road!
 
 Let's automate it with python:
 
