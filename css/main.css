@@ -99,7 +99,7 @@
     width: 1317px;
     height: 1px;
     left: 24.5px;
-    top: 1930.5px;
+    top: 1920px;
     transform: matrix(1, 0, 0, 1, 0, 0);
 }
 
@@ -233,10 +233,10 @@
 
 #articleheader {
     position: absolute;
-    left: 416px;
-    top: 1453.101px;
+    left: 121px;
+    top: 1453px;
+    width: 1124px;
     overflow: visible;
-    width: 535px;
     white-space: nowrap;
     text-align: left;
     font-family: Coves;
@@ -270,4 +270,25 @@
     font-weight: lighter;
     font-size: 30px;
     color: rgba(112, 112, 112, 1);
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}
+  
+.scrollmenu article_card {
+    display: inline-block;
+    color: rgba(112, 112, 112, 1);
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 30px;
+}
+
+.imag {
+    max-height: 280px;
+    box-shadow: 0px 0px 10px black;
 }
