@@ -291,4 +291,5 @@
 .imag {
     max-height: 280px;
     box-shadow: 0px 0px 10px black;
+    text-decoration: none;
 }
