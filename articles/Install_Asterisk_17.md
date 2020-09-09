@@ -1,4 +1,4 @@
-# Installing Asterisk 17.7.0 on Linux for webRTC Clients
+# Installing Asterisk 17.7.0 on Linux and set it up for webRTC Clients
 
 Asterisk is an open source software for developing PBX (private telephone network). It is like Apache but for VoIP/SIP communications. 
 
