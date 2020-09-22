@@ -2,7 +2,7 @@
 
 Asterisk is an open source software for developing PBX (private telephone network). It is like Apache but for VoIP/SIP communications. 
 
-## Download && Depencencies
+## Download && Dependencies
 
 First thing first, download the latest source code from [Downloads Asterisk](https://www.asterisk.org/downloads/). Then "untar" the archive
 
@@ -14,7 +14,7 @@ NOTE: in this article we will not cover the installing of libpri and DAHDI libra
 
 Asterisk contains two SIP stacks, the **chain_sip** which is no longer core-supported and the new **chan_pjsip** based on [PJSIP](https://www.pjsip.org/). The new stack is a separate library but it is bundled in Asterisk, and from version 15 it is the first choice.
 
-All the following commands should be done by root. First, move to the Asterisk directory and then install all the depencencies
+All the following commands should be done by root. First, move to the Asterisk directory and then install all the dependencies
 
 ```bash
 $ cd asterisk-17.7.0/
@@ -85,7 +85,7 @@ and `/etc/asterisk/pjsip.conf` as follows:
 type=aor
 max_contacts=5
 remove_existing=yes
-  
+
 [webrtc_client]
 type=auth
 auth_type=userpass
@@ -157,7 +157,7 @@ have a look at [Asterisk Command Line Interface](https://wiki.asterisk.org/wiki/
 
 ## Connect from a Client
 
-Now, for testing pourpose, modify the `/etc/asterisk/extensions.conf` file in order to make the server answering with a voice demo:
+Now, for testing purpose, modify the `/etc/asterisk/extensions.conf` file in order to make the server answering with a voice demo:
 
 ```
 [default]
@@ -168,7 +168,7 @@ same => n,Hangup()
 
 Our Asterisk server will now answer the calls to 200 and then play an audio demo file. [Dialplan Doc](https://wiki.asterisk.org/wiki/display/AST/Dialplan).
 
-After saving the modifed file just restart the Asterisk process from the CLI.
+After saving the modified file just restart the Asterisk process from the CLI.
 
 From this moment we should be able to use [sipML5 HTML5 SIP demo client](https://www.doubango.org/sipml5/) with the following settings:
 
@@ -188,8 +188,47 @@ Then click Expert mode and use this settings:
 
 - WebSocket Server URL: wss://your_ip:8089/ws
 
-cick save, and then login.
+click save, and then login.
 
 You now should be able to call [200] only with audio and you should hear a voice message.
 
-DONE!
+## Enable Video Calling
+
+After we get a fully working demo, we can test the video calling functionality by creating a new user in `/etc/asterisk/pjsip.conf` file and modifying (again) the [default] entry of `/etc/asterisk/extensions.conf` file. 
+
+The only thing to do, in order to enable video calling, is adding a video codec to the codec allow entry in `pjsip.conf`. (As a second client we will use a softphone emulator, in particular [linphone.org](https://www.linphone.org/)) So let's create a new user in `/etc/asterisk/pjsip.conf` and add video codec options:
+
+```
+[linphone_user]
+type=aor
+max_contacts=5
+remove_existing=yes
+
+[linphone_user]
+type=auth
+auth_type=userpass
+username=linphone_user
+password=linphone_user    ; CHANGE THIS PASSWORD
+
+[linphone_user]
+type=endpoint
+aors=linphone_user
+auth=linphone_user
+context=default
+disallow=all
+allow=opus,ulaw,vp8,h264,h263,h263p    ; NOTE THE VIDEO CODECS!
+```
+
+***make sure you add the video codec entries also to our `[webrtc_client]` user!***
+
+Modify again `/etc/asterisk/extensions.conf` so as to make the two clients can call each other:
+
+```
+[default]
+exten => 106,1,Dial(PJSIP/webrtc_client) ; calling 106 will call the webrtc_client
+exten => 601,1,Dial(PJSIP/linphone_user) ; calling 601 will call the linphone client
+```
+
+Now `core restart gracefully` from the Asterisk CLI.
+
+Simply open the linphone App and use the SIP `linphone_user` account in order to log in. You will be now able to video call the sipml5 webrtc_client and vice-versa.
