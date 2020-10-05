@@ -1,6 +1,6 @@
 # Installing Asterisk 17.7.0 on Linux and set it up for webRTC Clients
 
-Asterisk is an open source software for developing PBX (private telephone network). It is like Apache but for VoIP/SIP communications. 
+Asterisk is an open source software for developing PBX (private telephone network). It is like Apache but for VoIP/SIP communications.
 
 ## Download && Dependencies
 
@@ -29,7 +29,7 @@ $ apt install gcc g++ make patch libedit-dev uuid-dev libxml2-dev libsqlite3-dev
 
 ## Let's Compile!
 
-Before compiling, run the configuration script. From version 15 and above the flag `--with-pjproject-bundled` is not necessary, if you want to use only the *chain_sip* stack just use the flag `--without-pjproject-bundled`. Because we are using the version 17 run the following command (note that we are including jansson C library)
+Before compiling, run the configuration script. From version 15 and above the flag `--with-pjproject-bundled` is not necessary, if you want to use only the _chain_sip_ stack just use the flag `--without-pjproject-bundled`. Because we are using the version 17 run the following command (note that we are including jansson C library)
 
 ```bash
 $ ./configure --with-jansson-bundled
@@ -41,7 +41,7 @@ then
 $ make menuselect
 ```
 
-in this menu you can change what modules you would like to load. Make sure you are loading *res_pjsip* modules and, in the section *Codec Translators*, the opus codec. We are ready for compiling the source code.
+in this menu you can change what modules you would like to load. Make sure you are loading _res_pjsip_ modules and, in the section _Codec Translators_, the opus codec. We are ready for compiling the source code.
 
 ```bash
 $ make && make install
@@ -81,6 +81,18 @@ tlsprivatekey=/etc/asterisk/keys/asterisk.key
 and `/etc/asterisk/pjsip.conf` as follows:
 
 ```
+[transport-wss]
+type=transport
+protocol=wss
+bind=0.0.0.0
+
+[transport-udp]
+type=transport
+protocol=udp
+bind=0.0.0.0
+
+;====== webRTC user config ======
+
 [webrtc_client]
 type=aor
 max_contacts=5
@@ -118,7 +130,7 @@ $ asterisk
 $ asterisk -vvvr
 somewhere*CLI> http show status
 HTTP Server Status:
-Prefix: 
+Prefix:
 Server: Asterisk
 Server Enabled and Bound to 0.0.0.0:8088
 
@@ -144,7 +156,7 @@ Then with Firefox/Chrome you should be able to get the browser to accept the sel
 You can exit the Asterisk Console by pressing Ctrl-C
 
 ```bash
-# for stop the service
+# stop the service
 core stop now
 core stop gracefully
 
@@ -194,7 +206,7 @@ You now should be able to call [200] only with audio and you should hear a voice
 
 ## Enable Video Calling
 
-After we get a fully working demo, we can test the video calling functionality by creating a new user in `/etc/asterisk/pjsip.conf` file and modifying (again) the [default] entry of `/etc/asterisk/extensions.conf` file. 
+After we get a fully working demo, we can test the video calling functionality by creating a new user in `/etc/asterisk/pjsip.conf` file and modifying (again) the [default] entry of `/etc/asterisk/extensions.conf` file.
 
 The only thing to do, in order to enable video calling, is adding a video codec to the codec allow entry in `pjsip.conf`. (As a second client we will use a softphone emulator, in particular [linphone.org](https://www.linphone.org/)) So let's create a new user in `/etc/asterisk/pjsip.conf` and add video codec options:
 
@@ -219,7 +231,7 @@ disallow=all
 allow=opus,ulaw,vp8,h264,h263,h263p    ; NOTE THE VIDEO CODECS!
 ```
 
-***make sure you add the video codec entries also to our `[webrtc_client]` user!***
+**_make sure you add the video codec entries also to our `[webrtc_client]` user!_**
 
 Modify again `/etc/asterisk/extensions.conf` so as to make the two clients can call each other:
 
