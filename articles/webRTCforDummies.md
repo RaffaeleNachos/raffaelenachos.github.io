@@ -2,7 +2,7 @@
 
 ## What is webRTC?
 
-webRTC stands out for "web Real Time Communication" and it is a technology supported by major companies like Google and Apple. This technology supports video, voice, and generic data to be sent between peers (usually browsers), allowing developers to build powerful voice and video communication solutions like Google Meet. The main particularity of webRTC is the embed API in all modern browsers in order to avoid external plugins. 
+webRTC stands for "web Real Time Communication" and it is a technology supported by major companies like Google and Apple. This technology supports video, voice, and generic data to be sent between peers (usually browsers), allowing developers to build powerful voice and video communication solutions like Google Meet. The main particularity of webRTC is the embed API in all modern browsers in order to avoid external plugins. 
 
 webRTC is also [OpenSource! - GitHub](https://github.com/webrtc). Apple seize the opportunity making webRTC integrated in Apple's development [WebKit](https://webkit.org/blog/7726/announcing-webrtc-and-media-capture/), but also the open source community made a cool [WebRTC module for React Native](https://github.com/react-native-webrtc/react-native-webrtc).
 
