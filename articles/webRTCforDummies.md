@@ -6,7 +6,7 @@ webRTC stands for "web Real Time Communication" and it is a technology supported
 
 webRTC is also [OpenSource! - GitHub](https://github.com/webrtc). Apple seize the opportunity making webRTC integrated in Apple's development [WebKit](https://webkit.org/blog/7726/announcing-webrtc-and-media-capture/), but also the open source community made a cool [WebRTC module for React Native](https://github.com/react-native-webrtc/react-native-webrtc).
 
-### MainFrame
+### Main Components
 
 webRTC is made up of three main APIs:
 
