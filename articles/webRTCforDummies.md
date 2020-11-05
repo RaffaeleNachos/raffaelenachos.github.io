@@ -2,7 +2,7 @@
 
 ## What is webRTC?
 
-webRTC stands for "web Real Time Communication" and it is a technology supported by major companies like Google and Apple. This technology supports video, voice, and generic data to be sent between peers (usually browsers), allowing developers to build powerful voice and video communication solutions like Google Meet. The main particularity of webRTC is the embed API in all modern browsers in order to avoid external plugins. 
+webRTC stands for "web Real Time Communication" and it is a technology supported by major companies like Google, Firefox and Apple. This technology supports video, voice, and generic data to be sent between peers (usually browsers), allowing developers to build powerful voice and video communication solutions like Google Meet. The main particularity of webRTC is the embed API in all modern browsers in order to avoid external plugins. 
 
 webRTC is also [OpenSource! - GitHub](https://github.com/webrtc). Apple seize the opportunity making webRTC integrated in Apple's development [WebKit](https://webkit.org/blog/7726/announcing-webrtc-and-media-capture/), but also the open source community made a cool [WebRTC module for React Native](https://github.com/react-native-webrtc/react-native-webrtc).
 
@@ -18,7 +18,7 @@ webRTC is made up of three main APIs:
 
 #### Capturing MediaStreams (mediaDevices.getUserMedia())
 
-It's work is get access to data streams, such as from the user's webcam/camera and microphone. The "RFCs" can be found [here](https://www.w3.org/TR/mediacapture-streams/) and [here](https://w3c.github.io/webrtc-pc/). In few words the clients code calls `getUserMedia()` method which, after getting the permissions from the user, outputs a `MediaStream` object which has input and output properties, that might be passed to a video element or an RTCPeerConnection. Each `MediaStream` has a unique ID in this format `Bhnc680yqP0TMhpDdtVzprlDqJZnAENQ4pct`.
+It's work is get access to data streams, such as from the user's webcam/camera and microphone. The detailed docs can be found [here](https://www.w3.org/TR/mediacapture-streams/) and [here](https://w3c.github.io/webrtc-pc/). In few words the client's code calls `getUserMedia()` method which, after getting the permissions from the user, outputs a `MediaStream` object which has input and output properties, that might be passed to a HTML5 video element or a RTCPeerConnection. Each `MediaStream` object has internally one or more `MediaStreamTrack` which is a support from a single source (an example could be one `MediaStreamTrack` for audio source and another for video soruce)
 
 #### RTCPeerConnection
 
@@ -36,11 +36,13 @@ Signaling is used to exchange three types of information:
 
 Once the signaling process has completed successfully, data can be streamed directly peer to peer.
 
-This signaling process needs a way for clients to pass messages back and forth, passing NATs and Firewalls. As said before, this mechanism is not implemented by the WebRTC APIs so you need to build your own, using STUN (get external IPs) and TURN (relay the traffic between peers) servers. A more detailed article about STUN and TURN can be found [HERE](https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/).
+Also this signaling process needs a way for clients to pass messages back and forth, passing NATs and Firewalls and, as said before, this mechanism is not implemented by the WebRTC APIs so you need to build your own. 
+
+After signaling, the `RTCPeerConnection` can make the call using STUN (get external IPs) and TURN (relay the traffic between peers) servers. In simple words, using a STUN server a client can obtain the IP address of the other client and start a call Peer2Peer. If this is not possible due to NATs and Firewalls the client can use a TURN server, that will handle connection and media streaming for it. A more detailed article about STUN and TURN can be found [HERE](https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/).
 
 #### RTCDataChannel
 
-It's work is making peer-to-peer communication of generic data. A cool code-lab about making a functional app using RTCDataChannel can be found [HERE](https://codelabs.developers.google.com/codelabs/webrtc-web/#0).
+It's work is making peer-to-peer communication of generic data, useful for messaging or sending game informations. A cool code-lab about making a functional app using RTCDataChannel can be found [HERE](https://codelabs.developers.google.com/codelabs/webrtc-web/#5).
 
 #### What about Security
 
