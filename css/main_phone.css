@@ -1,0 +1,260 @@
+@font-face {
+    font-family: Coves;
+    src: url(./font/Coves.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+#particles-js {
+    height: 100%;
+    width: 100%;
+}
+
+#myWeb {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+}
+
+#finalpic {
+    border-radius: 50%;
+    position: absolute;
+    width: 30vw;
+    height: auto;
+    left: 20px;
+    top: 20px;
+    overflow: visible;
+}
+
+#hello_world {
+    position: absolute;
+    right: 10px;
+    top: 8vw;
+    font-size: 12vw;
+    text-align: right;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(112, 112, 112, 1);
+}
+
+#my_name {
+    position: absolute;
+    top: 20vw;
+    right: 10px;
+    font-size: 4vw;
+    text-align: right;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    color: rgba(112, 112, 112, 1);
+}
+
+#firstcanvas {
+    position: absolute;
+    overflow: visible;
+    width: 100%;
+    height: auto;
+    top: 38vw;
+}
+
+#description {
+    top: 90vw;
+    padding: 4px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#secondcanvas {
+    position: absolute;
+    overflow: visible;
+    width: 100%;
+    height: auto;
+    top: 133vw;
+}
+
+#hobbies {
+    top: 185vw;
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#articleheader {
+    position: absolute;
+    top: 235vw;
+    width: 100%;
+    text-align: center;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 8vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+}
+  
+.scrollmenu article_card {
+    display: inline-block;
+    color: rgba(112, 112, 112, 1);
+    text-align: center;
+    padding: 4vw;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+}
+
+.imag {
+    max-height: 47vw;
+    box-shadow: 0px 0px 8px black;
+    text-decoration: none;
+}
+
+.footerline {
+    position: absolute;
+    width: 100%;
+    height: 1vw;
+    top: 307vw;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+#ping_me {
+    top: 309vw;
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 8vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#mail {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    left: 2vw;
+    top: 323vw;
+    overflow: visible;
+}
+
+#mail_text {
+    position: absolute;
+    left: 14vw;
+    top: 324vw;
+    width: 50%;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#github {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    left: 2vw;
+    top: 334vw;
+    overflow: visible;
+}
+
+#github_username {
+    position: absolute;
+    left: 14vw;
+    top: 336vw;
+    width: 50%;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#linkedin {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    left: 2vw;
+    top: 346vw;
+    overflow: visible;
+}
+
+#linkedin_text {
+    position: absolute;
+    left: 14vw;
+    top: 348vw;
+    width: 50%;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#cv {
+    position: absolute;
+    width: 10%;
+    height: auto;
+    left: 2vw;
+    top: 358vw;
+    overflow: visible;
+}
+
+#cv_text {
+    position: absolute;
+    left: 14vw;
+    top: 360vw;
+    width: 80%;
+    text-align: left;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 5vw;
+    color: rgba(112, 112, 112, 1);
+}
+
+#disclaimer {
+    position: absolute;
+    right: 10px;
+    top: 373vw;
+    width: 50%px;
+    text-align: right;
+    font-family: Coves;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 3vw;
+    color: rgba(112, 112, 112, 1);
+    padding-bottom: 15px;
+}
