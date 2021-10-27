@@ -62,7 +62,7 @@
     position: absolute;
     overflow: visible;
     width: 100%;
-    height: auto;
+    height: 50vw;
     top: 38vw;
 }
 
@@ -83,7 +83,7 @@
     position: absolute;
     overflow: visible;
     width: 100%;
-    height: auto;
+    height: 50vw;
     top: 133vw;
 }
 
